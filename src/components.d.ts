@@ -7,18 +7,18 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    }
+    interface WcComponent {
+        "age": number;
+        "name": string;
+        "secondSurname": string;
+        "surname": string;
+    }
+    interface WcComponent2 {
+    }
+    interface WcComponente03 {
+    }
+    interface WcPage {
     }
 }
 declare global {
@@ -28,27 +28,59 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLWcComponentElement extends Components.WcComponent, HTMLStencilElement {
+    }
+    var HTMLWcComponentElement: {
+        prototype: HTMLWcComponentElement;
+        new (): HTMLWcComponentElement;
+    };
+    interface HTMLWcComponent2Element extends Components.WcComponent2, HTMLStencilElement {
+    }
+    var HTMLWcComponent2Element: {
+        prototype: HTMLWcComponent2Element;
+        new (): HTMLWcComponent2Element;
+    };
+    interface HTMLWcComponente03Element extends Components.WcComponente03, HTMLStencilElement {
+    }
+    var HTMLWcComponente03Element: {
+        prototype: HTMLWcComponente03Element;
+        new (): HTMLWcComponente03Element;
+    };
+    interface HTMLWcPageElement extends Components.WcPage, HTMLStencilElement {
+    }
+    var HTMLWcPageElement: {
+        prototype: HTMLWcPageElement;
+        new (): HTMLWcPageElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "wc-component": HTMLWcComponentElement;
+        "wc-component2": HTMLWcComponent2Element;
+        "wc-componente03": HTMLWcComponente03Element;
+        "wc-page": HTMLWcPageElement;
     }
 }
 declare namespace LocalJSX {
     interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    }
+    interface WcComponent {
+        "age"?: number;
+        "name"?: string;
+        "secondSurname"?: string;
+        "surname"?: string;
+    }
+    interface WcComponent2 {
+    }
+    interface WcComponente03 {
+    }
+    interface WcPage {
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "wc-component": WcComponent;
+        "wc-component2": WcComponent2;
+        "wc-componente03": WcComponente03;
+        "wc-page": WcPage;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +88,10 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "wc-component": LocalJSX.WcComponent & JSXBase.HTMLAttributes<HTMLWcComponentElement>;
+            "wc-component2": LocalJSX.WcComponent2 & JSXBase.HTMLAttributes<HTMLWcComponent2Element>;
+            "wc-componente03": LocalJSX.WcComponente03 & JSXBase.HTMLAttributes<HTMLWcComponente03Element>;
+            "wc-page": LocalJSX.WcPage & JSXBase.HTMLAttributes<HTMLWcPageElement>;
         }
     }
 }
